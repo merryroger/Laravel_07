@@ -64,10 +64,10 @@ class MoneyFormatterTest extends TestCase
         $formatter = new MoneyFormatter($value);
         $formatter2 = new MoneyFormatter($valueExpected);
         $formatter->eraseString();
-        $this->assertEquals($formatter, $formatter2);
+        $this->assertEquals($formatter->getValue(), $formatter2->getValue());
     }
 
-    public function testIntegerValue()
+    public function testDigitsFormattedIntegerValue()
     {
         $value = 1000;
         $valueExpected = '1 000.00';
@@ -75,7 +75,7 @@ class MoneyFormatterTest extends TestCase
         $this->assertEquals($formatter->digitsFormatted(), $valueExpected);
     }
 
-    public function testBigIntegerValue()
+    public function testDigitsFormattedBigIntegerValue()
     {
         $value = 875409686;
         $valueExpected = '875 409 686.00';
@@ -83,7 +83,7 @@ class MoneyFormatterTest extends TestCase
         $this->assertEquals($formatter->digitsFormatted(), $valueExpected);
     }
 
-    public function testFloatValue()
+    public function testDigitsFormattedFloatValue()
     {
         $value = 970.3;
         $valueExpected = '970.30';
@@ -91,7 +91,7 @@ class MoneyFormatterTest extends TestCase
         $this->assertEquals($formatter->digitsFormatted(), $valueExpected);
     }
 
-    public function testTinyFloatValue()
+    public function testDigitsFormattedTinyFloatValue()
     {
         $value = 0.014478;
         $valueExpected = '0.01';

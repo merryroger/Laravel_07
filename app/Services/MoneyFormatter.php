@@ -11,6 +11,11 @@ class MoneyFormatter
         $this->value = $value;
     }
 
+    public function getValue()
+    {
+        return strval($this->value);
+    }
+
     public function eraseString()
     {
         $this->value = str_replace([' ', ',', '.', '_', '-'], '', $this->value);
